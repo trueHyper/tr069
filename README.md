@@ -17,4 +17,12 @@ echo "138.118.4.3" | ./zgrab2 tr069 --port 7547 --forecast > result.json
 ## Example
 ![изображение](https://github.com/user-attachments/assets/22510021-1229-4e47-81d2-c7e09c83f326)
 
+## Install
+```
+git clone https://github.com/trueHyper/tr069.git
+cd tr069/
+make install
+echo "138.118.4.3" | ./zgrab2 tr069 --port 7547 --forecast > result.json
+```
+
 
