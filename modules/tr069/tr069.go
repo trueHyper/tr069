@@ -9,16 +9,16 @@ CPE(Client)                                      ACS(Server)
 
 if GET returned 200 OK or 405 Method Not Allowed -> it's possible to communicate via CWMP
 
-    |                                                 |
-    |--------------- (1) Open connection ------------>|
+   	|                                                 |
+    	|--------------- (1) Open connection ------------>|
 	|                                                 | 
-    |--------------- (2) HTTP POST (Inform) --------->|
+	|--------------- (2) HTTP POST (Inform) --------->|
 	|                                                 |	
-    |<-------------- (3) HTTP 200 OK (InformResp) ----| // This is collected in inform_response
-    |                                                 |
-    |--------------- (4) HTTP POST (empty) ---------->| 
+    	|<-------------- (3) HTTP 200 OK (InformResp) ----| // This is collected in inform_response
+    	|                                                 |
+    	|--------------- (4) HTTP POST (empty) ---------->| 
 	|                                                 |	
-    |<-------------- (5) HTTP 200 OK (GetParam) ------| // This is collected in post_response
+    	|<-------------- (5) HTTP 200 OK (GetParam) ------| // This is collected in post_response
 
 */
 
@@ -199,10 +199,7 @@ func GetTR069Banner(ctx context.Context, dialer *zgrab2.DialerGroup, target *zgr
 	Simple heuristic that looks for keywords and signs of CWMP
 */
 func scoreTR069(headers http.Header, port int, get_status int, get_body_empty bool, inform_status int) {
-
-	if inform_status == BAD_INFORM_REQUEST {
-		return
-	}
+	if inform_status == BAD_INFORM_REQUEST {return}
 
 	var (
 		score             int
@@ -224,18 +221,12 @@ func scoreTR069(headers http.Header, port int, get_status int, get_body_empty bo
 		}
 	}
 
-	if head_server != "" && cwmpPattern.MatchString(head_server) {
-		score += 4
-	}
+	if head_server != "" && cwmpPattern.MatchString(head_server) {score += 4}
 
-	if head_www_auth != "" && cwmpPattern.MatchString(head_www_auth) {
-		score += 4
-	}
+	if head_www_auth != "" && cwmpPattern.MatchString(head_www_auth) {score += 4}
 
 	if strings.Contains(head_content_type, "xml") ||
-		strings.Contains(head_content_type, "soap") {
-		score += 1
-	}
+		strings.Contains(head_content_type, "soap") {score += 1}
 
 	if port == 7547 {
 		if strings.Contains(head_www_auth, "HuaweiHomeGateway") ||
