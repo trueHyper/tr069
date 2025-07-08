@@ -1,4 +1,4 @@
-## TR-069 Scanner (CWMP)
+## CWMP Scanner (RT-069)
 Первым делом модуль просто кидает GET запрос на адрес, потому что подавляющее большинство банеров достаются именно так:)
 Большинство cwmp серверов не настроены на диалог и отвечают просто авторизацией или неправильным путем.
 
@@ -22,7 +22,7 @@ echo "138.118.4.3" | ./zgrab2 tr069 --port 7547 --forecast > result.json
 git clone https://github.com/trueHyper/tr069.git
 cd tr069/
 make install
-echo "138.118.4.3" | ./zgrab2 tr069 --port 7547 --forecast > result.json
+echo "138.118.4.3" | ./zgrab2 cwmp --port 7547 --forecast > result.json
 ```
 
 
