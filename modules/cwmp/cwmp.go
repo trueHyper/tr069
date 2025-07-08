@@ -2,7 +2,7 @@ package cwmp
 
 /* 
 
-CPE(Client)                                      ACS(Server)
+   CPE(Client)                                       ACS(Server)
 	| ----------------------GET---------------------->|
 	|                                                 |
 	|<----------------------Banner--------------------| // This is collected in get_response
@@ -10,15 +10,15 @@ CPE(Client)                                      ACS(Server)
 if GET returned 200 OK or 405 Method Not Allowed -> it's possible to communicate via CWMP
 
    	|                                                 |
-    |--------------- (1) Open connection ------------>|
+    	|--------------- (1) Open connection ------------>|
 	|                                                 | 
 	|--------------- (2) HTTP POST (Inform) --------->|
 	|                                                 |	
-    |<-------------- (3) HTTP 200 OK (InformResp) ----| // This is collected in inform_response
-    |                                                 |
-    |--------------- (4) HTTP POST (empty) ---------->| 
+    	|<-------------- (3) HTTP 200 OK (InformResp) ----| // This is collected in inform_response
+    	|                                                 |
+    	|--------------- (4) HTTP POST (empty) ---------->| 
 	|                                                 |	
-    |<-------------- (5) HTTP 200 OK (GetParam) ------| // This is collected in post_response
+    	|<-------------- (5) HTTP 200 OK (GetParam) ------| // This is collected in post_response
 
 */
 
