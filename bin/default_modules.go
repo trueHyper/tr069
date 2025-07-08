@@ -25,7 +25,7 @@ import (
 	"github.com/zmap/zgrab2/modules/smb"
 	"github.com/zmap/zgrab2/modules/smtp"
 	"github.com/zmap/zgrab2/modules/telnet"
-	_ "github.com/zmap/zgrab2/modules/tr069"
+	_ "github.com/zmap/zgrab2/modules/cwmp"
 )
 
 var defaultModules zgrab2.ModuleSet
