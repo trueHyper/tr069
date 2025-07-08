@@ -9,7 +9,7 @@
 
 ## Use
 ```
-echo "138.118.4.3" | ./zgrab2 tr069 --port 7547 --forecast > result.json
+echo "138.118.4.3" | ./zgrab2 cwmp --port 7547 --forecast > result.json
 ```
 
 Флаг `--forecast` предоставляет простую эвристику, которая предполагает: это устройство общается по CWMP или нет 
